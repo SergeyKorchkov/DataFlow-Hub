@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: radial-gradient(circle at top, #1b2b4a 0%, #020617 48%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes weather-rain-fall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(380px);
+    opacity: 0;
+  }
+}
+
+@keyframes weather-snow-fall {
+  0% {
+    transform: translateY(-20px) translateX(0px);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(360px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes weather-fog-shift {
+  0% {
+    transform: translateX(-18px);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translateX(18px);
+    opacity: 0.42;
+  }
+
+  100% {
+    transform: translateX(-18px);
+    opacity: 0.2;
+  }
+}
+
+@keyframes weather-glow-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.55;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+}
+
+@keyframes weather-cloud-float {
+  0% {
+    transform: translateX(-16px);
+    opacity: 0.32;
+  }
+
+  50% {
+    transform: translateX(16px);
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: translateX(-16px);
+    opacity: 0.32;
+  }
+}
+
+.weather-rain {
+  animation-name: weather-rain-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.weather-snow {
+  animation: weather-snow-fall 3.4s linear infinite;
+}
+
+.weather-fog {
+  animation: weather-fog-shift 4s ease-in-out infinite;
+}
+
+.weather-glow {
+  animation: weather-glow-pulse 3.2s ease-in-out infinite;
+}
+
+.weather-cloud {
+  animation: weather-cloud-float 4.6s ease-in-out infinite;
+}
+
+@keyframes shimmer-slide {
+  0% {
+    background-position: -120% 0;
+  }
+
+  100% {
+    background-position: 120% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.78) 25%, rgba(30, 41, 59, 0.95) 37%, rgba(15, 23, 42, 0.78) 63%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.6s ease-in-out infinite;
+}
