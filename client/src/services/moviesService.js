@@ -1,18 +1,3 @@
-const FALLBACK_MOVIES = [
-  {
-    id: 1,
-    title: "Offline Cinema",
-    overview: "Fallback movie feed while API is unavailable.",
-    vote_average: 7.7,
-    vote_count: 2100,
-    release_date: "2024-01-05",
-    poster_path: "",
-    backdrop_path: "",
-    genre_ids: [28, 878],
-    popularity: 120,
-  },
-];
-
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
 const TMDB_BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/w1280";
@@ -29,7 +14,8 @@ export const moviesService = {
       return {
         page: 1,
         total_pages: 1,
-        results: FALLBACK_MOVIES,
+        results: [],
+        missingApiKey: true,
       };
     }
 

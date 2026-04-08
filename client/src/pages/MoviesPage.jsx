@@ -77,6 +77,13 @@ export function MoviesPage() {
       try {
         const popular = await moviesService.getPopularMovies({ page, language: MOVIES_LANGUAGE, signal: controller.signal });
 
+        if (popular.missingApiKey) {
+          setError("Movies need VITE_TMDB_API_KEY in the Vercel environment variables.");
+          setMovies([]);
+          setTotalPages(1);
+          return;
+        }
+
         const incoming = popular.results || [];
 
         setMovies((prev) => {
